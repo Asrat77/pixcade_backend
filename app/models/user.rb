@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :reviews
 
   validates :user_id, presence: true, uniqueness: true
 

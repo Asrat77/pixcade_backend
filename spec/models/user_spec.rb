@@ -11,4 +11,7 @@ RSpec.describe User, type: :model do
   ]
   include_examples("model_shared_spec",:user,attribs)
 
+
+  it{is_expected.to(have_many(:reviews))}
+
 end
