@@ -10,31 +10,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_05_031743) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_07_185534) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "genres", force: :cascade do |t|
-    t.integer "genre_id"
+  create_table "games", force: :cascade do |t|
     t.string "name"
+    t.float "price"
+    t.date "release_date"
+    t.string "platform"
+    t.bigint "user_id", null: false
+    t.bigint "genre_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "game_id"
+    t.index ["genre_id"], name: "index_games_on_genre_id"
+    t.index ["user_id"], name: "index_games_on_user_id"
+  end
+
+  create_table "genres", force: :cascade do |t|
+    t.integer "genre_id", null: false
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.datetime "posted_time", default: "2023-09-05 03:21:20", null: false
+    t.datetime "posted_time", default: "2023-09-07 19:01:26", null: false
     t.string "review_content", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "game_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
-  end
-
-  create_table "testdbs", force: :cascade do |t|
-    t.string "name"
-    t.string "age"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -45,5 +53,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_05_031743) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "games", "genres"
+  add_foreign_key "games", "users"
+  add_foreign_key "reviews", "games"
   add_foreign_key "reviews", "users"
 end
