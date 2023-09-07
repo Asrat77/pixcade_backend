@@ -3,5 +3,6 @@ FactoryBot.define do
     posted_time { DateTime.now }
     review_content { Faker::Lorem.sentence }
     user
+    game
   end
 end
