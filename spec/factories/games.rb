@@ -7,5 +7,6 @@ FactoryBot.define do
     platform { "linux" }
     user
     genre
+
   end
 end

@@ -11,6 +11,8 @@ RSpec.describe Game, type: :model do
     {platform: [:presence, {inclusion: [[:in_array, Game::PLATFORMS]]}]},
     {user: :belong_to},
     {genre: :belong_to},
+    {wishlists: :have_many},
+    {wishlist_items: :have_many}
 
   ]
 

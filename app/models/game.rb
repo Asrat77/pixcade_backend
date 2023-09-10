@@ -2,6 +2,8 @@ class Game < ApplicationRecord
   belongs_to :user
   belongs_to :genre
   has_many :game
+  has_many :wishlist_items
+  has_many :wishlists, through: :wishlist_items
   LINUX = "linux".freeze
   MAC = "mac".freeze
   WINDOWS = "windows".freeze
