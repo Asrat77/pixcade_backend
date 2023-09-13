@@ -5,6 +5,8 @@ VALIDATIONS = {
   inclusion: 'validate_inclusion_of',
   belong_to: 'belong_to',
   have_many: 'have_many',
+  have_one: 'have_one',
+
   have_and_belong_to_many: 'have_and_belong_to_many'
 }.freeze
 
