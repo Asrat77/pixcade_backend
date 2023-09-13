@@ -10,11 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema[7.0].define(version: 2023_09_10_084634) do
-
+ActiveRecord::Schema[7.0].define(version: 2023_09_13_134702) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bundle_items", force: :cascade do |t|
+    t.string "bundleItemID", null: false
+    t.bigint "bundle_id", null: false
+    t.bigint "game_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bundle_id"], name: "index_bundle_items_on_bundle_id"
+    t.index ["game_id"], name: "index_bundle_items_on_game_id"
+  end
 
   create_table "bundles", force: :cascade do |t|
     t.integer "bundle_id", null: false
@@ -88,6 +96,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_10_084634) do
     t.index ["user_id"], name: "index_wishlists_on_user_id"
   end
 
+  add_foreign_key "bundle_items", "bundles"
+  add_foreign_key "bundle_items", "games"
   add_foreign_key "games", "genres"
   add_foreign_key "games", "users"
   add_foreign_key "reviews", "games"
