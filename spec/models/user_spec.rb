@@ -14,4 +14,17 @@ RSpec.describe User, type: :model do
 
   it{is_expected.to(have_many(:reviews))}
 
+  describe 'profile picture' do
+    let(:user) { FactoryBot.create(:user) }
+
+    before do
+      image_path = Rails.root.join('spec', 'fixtures', 'profile_pic.jpg')
+      user.profile_picture.attach(io: File.open(image_path), filename: 'profile_picture.jpg', content_type: 'image/jpeg')
+    end
+
+    it 'can have a profile picture attached' do
+      expect(user.profile_picture).to be_attached
+    end
+  end
+
 end
