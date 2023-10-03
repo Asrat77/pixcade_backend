@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_03_120838) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_03_122105) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -92,6 +92,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_03_120838) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "releases", force: :cascade do |t|
+    t.string "release_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "game_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_releases_on_game_id"
+    t.index ["user_id"], name: "index_releases_on_user_id"
+  end
+
   create_table "reviews", force: :cascade do |t|
     t.datetime "posted_time", default: "2023-09-07 19:01:26", null: false
     t.string "review_content", null: false
@@ -143,6 +153,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_03_120838) do
   add_foreign_key "featureds", "games"
   add_foreign_key "games", "genres"
   add_foreign_key "games", "users"
+  add_foreign_key "releases", "games"
+  add_foreign_key "releases", "users"
   add_foreign_key "reviews", "games"
   add_foreign_key "reviews", "users"
   add_foreign_key "wishlist_items", "games"
