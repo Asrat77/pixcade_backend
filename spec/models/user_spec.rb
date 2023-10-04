@@ -13,6 +13,12 @@ RSpec.describe User, type: :model do
 
 
   it{is_expected.to(have_many(:reviews))}
+  it{is_expected.to(have_many(:releases))}
+  it{is_expected.to(have_one(:wishlist))}
+  it{is_expected.to(have_many(:purchases))}
+
+
+
 
   describe 'profile picture' do
     let(:user) { FactoryBot.create(:user) }
