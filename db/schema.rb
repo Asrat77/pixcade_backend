@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_04_011603) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_04_012429) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -57,6 +57,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_04_011603) do
     t.string "bundle_name", null: false
     t.float "bundle_price", null: false
     t.integer "bundle_discount", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "descriptors", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "description", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
