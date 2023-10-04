@@ -12,10 +12,10 @@ class UsersController < ApplicationController
     end
   end
 
-def show
-  @user = User.find_by(email: params[:email])
-  render json: @user
-end
+  def show
+    @user = User.find(email: params[:email])
+    render json: @user
+  end
 
 
   private
@@ -23,4 +23,5 @@ end
   def user_params
     params.permit(:name, :email, :username, :password, :password_confirmation, :user_type)
   end
+
 end
