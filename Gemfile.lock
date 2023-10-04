@@ -76,6 +76,9 @@ GEM
     bootsnap (1.16.0)
       msgpack (~> 1.2)
     builder (3.2.4)
+    bullet (7.0.7)
+      activesupport (>= 3.0.0)
+      uniform_notifier (~> 1.11)
     case_transform (0.2)
       activesupport
     concurrent-ruby (1.2.2)
@@ -239,6 +242,7 @@ GEM
     tzinfo-data (1.2023.3)
       tzinfo (>= 1.0.0)
     unicode-display_width (2.4.2)
+    uniform_notifier (1.16.0)
     websocket-driver (0.7.6)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
@@ -251,6 +255,7 @@ PLATFORMS
 DEPENDENCIES
   active_model_serializers
   bootsnap
+  bullet
   debug
   factory_bot_rails (~> 6.2)
   faker (~> 3.2)
@@ -263,7 +268,7 @@ DEPENDENCIES
   tzinfo-data
 
 RUBY VERSION
-   ruby 3.2.2p53
+   ruby 3.1.2p20
 
 BUNDLED WITH
    2.4.10

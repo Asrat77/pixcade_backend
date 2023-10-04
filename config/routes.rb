@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :ratings
   resources :users
+  resources :wishlists
+
 end
