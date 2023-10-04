@@ -1,3 +1,3 @@
 class BundleItemSerializer < ActiveModel::Serializer
-  attributes :id, :bundle, :game,
+  attributes :id, :bundle, :game
 end

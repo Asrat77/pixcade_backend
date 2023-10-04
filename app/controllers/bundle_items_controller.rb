@@ -4,4 +4,5 @@ class BundleItemsController < ApplicationController
     private
     def model_params
         params.require(:payload).permit(:bundleItemID, :bundle, :game)
+    end
 end

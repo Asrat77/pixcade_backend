@@ -1,19 +1,19 @@
 require 'rails_helper'
 
 RSpec.describe "BundleItems", type: :request do
-  include_examples('request_shared_spec', 'bundle_items', 4)
+  include_examples('request_shared_spec', 'bundle_items', 3, %i[create update])
 
-  let(:valid_attributes) do 
+  let(:valid_attributes) do
     {
-      bundleItem_id: Faker::Number.number(digits: 4),
+      bundleItemId: Faker::Number.number(digits: 4),
       bundle_id: create(:bundle).id,
       game_id: create(:game).id,
     }
   end
 
-  let(:invalid_attributes) do 
+  let(:invalid_attributes) do
     {
-      bundle_id: nil
+      game: nil
     }
 end
 let (:new_attributes) do
