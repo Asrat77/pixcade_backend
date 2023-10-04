@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   resources :wishlist_items
   resources :bundles
   resources :bundle_items
+  resources :featureds
+
+
 
 
 
