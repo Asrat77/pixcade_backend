@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_04_012429) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_04_114730) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -61,13 +61,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_04_012429) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "descriptors", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "description", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "featureds", force: :cascade do |t|
     t.string "feature_id"
     t.bigint "game_id", null: false
@@ -99,6 +92,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_04_012429) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "platforms", force: :cascade do |t|
+    t.string "platform_id", null: false
+    t.string "name", null: false
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "purchases", force: :cascade do |t|
     t.string "purchase_id", null: false
     t.bigint "user_id", null: false
@@ -122,7 +123,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_04_012429) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.datetime "posted_time", default: "2023-09-07 19:01:26", null: false
+    t.datetime "posted_time", default: "2023-10-04 11:50:19", null: false
     t.string "review_content", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
@@ -145,7 +146,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_04_012429) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "profile_picture"
-    t.string "user_type"
     t.string "external_link"
     t.string "profile_text"
   end
