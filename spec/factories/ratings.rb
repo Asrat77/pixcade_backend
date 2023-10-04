@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :rating do
-    user_id 
-    game_id 
-    rating_value {Faker::Number.number(digit: 2) }
+    user
+    game
+    rating_value {Faker::Number.number(digits: 2) }
   end
 end

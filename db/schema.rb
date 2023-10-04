@@ -122,6 +122,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_04_122212) do
     t.index ["user_id"], name: "index_purchases_on_user_id"
   end
 
+  create_table "ratings", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "game_id", null: false
+    t.integer "rating_value", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_ratings_on_game_id"
+    t.index ["user_id"], name: "index_ratings_on_user_id"
+  end
+
   create_table "releases", force: :cascade do |t|
     t.string "release_id", null: false
     t.bigint "user_id", null: false
@@ -189,6 +199,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_04_122212) do
   add_foreign_key "games", "users"
   add_foreign_key "purchases", "games"
   add_foreign_key "purchases", "users"
+  add_foreign_key "ratings", "games"
+  add_foreign_key "ratings", "users"
   add_foreign_key "releases", "games"
   add_foreign_key "releases", "users"
   add_foreign_key "reviews", "games"
