@@ -4,13 +4,7 @@ class Game < ApplicationRecord
   has_many :wishlist_items
   has_many :wishlists, through: :wishlist_items
   has_many :game_tags
-  LINUX = "linux".freeze
-  MAC = "mac".freeze
-  WINDOWS = "windows".freeze
-
-  PLATFORMS = [LINUX, MAC,WINDOWS].freeze
   validates :game_id, presence: true, uniqueness: true
-  validates :name,:price,:platform, :release_date, presence: true
-  validates :platform, inclusion: {in: PLATFORMS}
+  validates :name,:price,:release_date, presence: true
 
 end
