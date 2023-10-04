@@ -1,4 +1,4 @@
-class Genre < ApplicationRecord
+class Genre < Descriptor
 
   validates :genre_id, presence: true, uniqueness: true
 
