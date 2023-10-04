@@ -5,8 +5,8 @@ RSpec.describe 'Ratings', type: :request do
 
   let(:valid_attributes) do
     {
-      game: create(:game).id,
-      user: create(:user).id,
+      game_id: create(:game).id,
+      user_id: create(:user).id,
       rating_value: Faker::Number.number(digits: 2)
     }
   end

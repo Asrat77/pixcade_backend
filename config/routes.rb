@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :ratings
   resources :users
   resources :wishlists
+  resources :wishlist_items
+
 
 
 end
