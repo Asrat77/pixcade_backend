@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Ratings', type: :request do
-  include_examples('request_shared_spec', 'ratings')
+  include_examples('request_shared_spec', 'ratings', 2, [:create])
 
   let(:valid_attributes) do
     {
@@ -14,5 +14,11 @@ RSpec.describe 'Ratings', type: :request do
     {
       game: nil
     }
-  end   
+  end
+
+  let(:new_attributes) do {
+    rating_value: Faker::Number.number(digits: 2),
+  } end
+
+
 end
