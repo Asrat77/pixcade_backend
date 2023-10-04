@@ -1,0 +1,18 @@
+require 'rails_helper'
+
+RSpec.describe 'Ratings', type: :request do
+  include_examples('request_shared_spec', 'ratings')
+
+  let(:valid_attributes) do
+    {
+      game: create(:game).id,
+      user: create(:user).id,
+      rating_value: Faker::Number.number(digits: 2)
+    }
+  end
+  let(:invalid_attributes) do
+    {
+      game: nil
+    }
+  end   
+end
