@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "Bundles", type: :request do
   include_examples('request_shared_spec','bundles',4 )
 
-  let(:valid_attributes) do 
+  let(:valid_attributes) do
     {
       bundle_id: Faker::Number.number(digits: 4),
       bundle_name: Faker::Name.name ,
@@ -18,6 +18,8 @@ let(:invalid_attributes) do
 end
 
 let(:new_attributes) do {
-  bundle_name: Faker::Name.name 
+  bundle_name: Faker::Name.name
 }
+end
+
 end
