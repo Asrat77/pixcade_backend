@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   resources :users
   resources :wishlists
   resources :wishlist_items
+  resources :bundles
+
 
 
 
