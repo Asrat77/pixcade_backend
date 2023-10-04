@@ -12,7 +12,9 @@ RSpec.describe Game, type: :model do
     {user: :belong_to},
     {genre: :belong_to},
     {wishlists: :have_many},
-    {wishlist_items: :have_many}
+    {wishlist_items: :have_many},
+    {game_tags: :have_many}
+
 
   ]
 
