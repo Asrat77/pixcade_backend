@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   resources :bundles
   resources :bundle_items
   resources :featureds
+  resources :games
+
 
 
 
