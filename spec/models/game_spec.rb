@@ -8,11 +8,12 @@ RSpec.describe Game, type: :model do
 
     {name: :presence },
     {release_date: :presence },
-    {platform: [:presence, {inclusion: [[:in_array, Game::PLATFORMS]]}]},
     {user: :belong_to},
     {genre: :belong_to},
     {wishlists: :have_many},
-    {wishlist_items: :have_many}
+    {wishlist_items: :have_many},
+    {game_tags: :have_many}
+
 
   ]
 

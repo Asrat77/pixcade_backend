@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_04_150148) do
+
+ActiveRecord::Schema[7.0].define(version: 2023_10_04_190800) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -71,11 +73,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_04_150148) do
     t.index ["game_id"], name: "index_featureds_on_game_id"
   end
 
+  create_table "game_tags", force: :cascade do |t|
+    t.bigint "game_id", null: false
+    t.bigint "tag_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_game_tags_on_game_id"
+    t.index ["tag_id"], name: "index_game_tags_on_tag_id"
+  end
+
   create_table "games", force: :cascade do |t|
     t.string "name"
     t.float "price"
     t.date "release_date"
-    t.string "platform"
     t.bigint "user_id", null: false
     t.bigint "genre_id", null: false
     t.datetime "created_at", null: false
@@ -90,6 +100,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_04_150148) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "description"
   end
 
   create_table "platforms", force: :cascade do |t|
@@ -112,6 +123,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_04_150148) do
     t.index ["user_id"], name: "index_purchases_on_user_id"
   end
 
+  create_table "ratings", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "game_id", null: false
+    t.integer "rating_value", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_ratings_on_game_id"
+    t.index ["user_id"], name: "index_ratings_on_user_id"
+  end
+
   create_table "releases", force: :cascade do |t|
     t.string "release_id", null: false
     t.bigint "user_id", null: false
@@ -124,6 +145,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_04_150148) do
 
   create_table "reviews", force: :cascade do |t|
     t.datetime "posted_time", default: "2023-10-04 15:04:55", null: false
+    t.datetime "posted_time", default: "2023-10-04 12:40:42", null: false
     t.string "review_content", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
@@ -137,6 +159,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_04_150148) do
     t.string "tag_name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "description"
   end
 
   create_table "users", force: :cascade do |t|
@@ -175,10 +198,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_04_150148) do
   add_foreign_key "bundle_items", "bundles"
   add_foreign_key "bundle_items", "games"
   add_foreign_key "featureds", "games"
+  add_foreign_key "game_tags", "games"
+  add_foreign_key "game_tags", "tags"
   add_foreign_key "games", "genres"
   add_foreign_key "games", "users"
   add_foreign_key "purchases", "games"
   add_foreign_key "purchases", "users"
+  add_foreign_key "ratings", "games"
+  add_foreign_key "ratings", "users"
   add_foreign_key "releases", "games"
   add_foreign_key "releases", "users"
   add_foreign_key "reviews", "games"

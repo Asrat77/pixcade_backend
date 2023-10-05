@@ -5,4 +5,20 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
 
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
+  # Defines the root path route ("/")
+  # root "articles#index"
+  resources :ratings
+  resources :users
+  resources :wishlists
+  resources :wishlist_items
+  resources :bundles
+  resources :bundle_items
+  resources :featureds
+  resources :games
+
+
+
+
+
+
 end
