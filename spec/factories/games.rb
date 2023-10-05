@@ -6,6 +6,5 @@ FactoryBot.define do
     release_date { Date.today }
     user
     genre
-
   end
 end

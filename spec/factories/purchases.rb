@@ -1,6 +1,5 @@
 FactoryBot.define do
   factory :purchase do
-
     purchase_id { Faker::Alphanumeric.alpha(number: 8) }
     game
     user

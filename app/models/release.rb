@@ -3,5 +3,5 @@ class Release < ApplicationRecord
   belongs_to :game
 
   validates :release_id, presence: true, uniqueness: true
-  validates :user,:game, presence: true
+  validates :user, :game, presence: true
 end

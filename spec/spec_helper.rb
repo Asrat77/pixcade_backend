@@ -1,10 +1,8 @@
-require 'support/models/shared_models.rb'
-require 'support/requests/shared_requests.rb'
+require "support/models/shared_models"
+require "support/requests/shared_requests"
 # require_relative 'custom_formatter.rb'
 
-
 RSpec.configure do |config|
-
   # config.add_formatter(CustomFormatter)
   config.formatter = RSpec::Core::Formatters::DocumentationFormatter
   config.expect_with :rspec do |expectations|
@@ -16,5 +14,4 @@ RSpec.configure do |config|
 
   config.shared_context_metadata_behavior = :apply_to_host_groups
   config.profile_examples = 10
-
 end
