@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Featureds", type: :request do
-  include_examples('request_shared_spec','featureds',4, [:create])
+  include_examples('request_shared_spec','featureds',6, [:create])
 
   let(:valid_attributes) do
     {

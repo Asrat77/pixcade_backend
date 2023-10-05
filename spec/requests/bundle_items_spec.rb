@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "BundleItems", type: :request do
-  include_examples('request_shared_spec', 'bundle_items', 3, %i[create update])
+  include_examples('request_shared_spec', 'bundle_items', 4, %i[create update])
 
   let(:valid_attributes) do
     {
