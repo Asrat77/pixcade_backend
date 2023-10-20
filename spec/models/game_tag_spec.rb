@@ -1,11 +1,10 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe GameTag, type: :model do
   attribs = [
     {game: %i[presence belong_to]},
-    {tag: %i[presence belong_to]},
-    ]
+    {tag: %i[presence belong_to]}
+  ]
 
-    include_examples("model_shared_spec", :game_tag, attribs)
-
+  include_examples("model_shared_spec", :game_tag, attribs)
 end

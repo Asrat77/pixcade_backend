@@ -1,14 +1,15 @@
 class BundleItemsController < ApplicationController
-    include Common
+  include Common
 
-    def index
-        super do
-            BundleItem.includes(:bundle, :game)
-        end
+  def index
+    super do
+      BundleItem.includes(:bundle, :game)
     end
+  end
 
-    private
-    def model_params
-        params.require(:payload).permit(:bundleItemID, :bundle, :game)
-    end
+  private
+
+  def model_params
+    params.require(:payload).permit(:bundleItemID, :bundle, :game)
+  end
 end

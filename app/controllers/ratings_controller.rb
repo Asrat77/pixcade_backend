@@ -1,9 +1,9 @@
 class RatingsController < ApplicationController
-    include Common
+  include Common
 
-    private 
-    def model_params
-        params.require(:payload).permit(:game, :user, :rating_value)
-    end
+  private
+
+  def model_params
+    params.require(:payload).permit(:game, :user, :rating_value)
+  end
 end
- 

@@ -18,4 +18,5 @@ Rails.application.routes.draw do
   resources :games
 
   get '/client_details' => 'clients#index'
+
 end
