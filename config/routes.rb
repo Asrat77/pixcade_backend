@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+
+  devise_for :clients, controllers:{
+    sessions: 'clients/sessions',
+    registrations: 'clients/registrations'
+  }
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
@@ -12,9 +17,5 @@ Rails.application.routes.draw do
   resources :featureds
   resources :games
 
-
-
-
-
-
+  get '/client_details' => 'clients#index'
 end
