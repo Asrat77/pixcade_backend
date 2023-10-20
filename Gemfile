@@ -4,12 +4,15 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 
 
-ruby '3.1.2'
+ruby '3.2.2'
 
 
 
 gem 'rails', '~> 7.0.7', '>= 7.0.7.2'
 
+gem 'devise'
+gem 'devise-jwt'
+gem 'rack-cors'
 
 
 gem 'pg', '~> 1.1'
@@ -44,6 +47,10 @@ group :development, :test do
   gem 'shoulda-matchers', '~> 5.3'
 
   gem 'standard', '~> 1.31'
+
+  gem 'devise_token_auth'
+
+  gem 'omniauth'
 
 end
 
